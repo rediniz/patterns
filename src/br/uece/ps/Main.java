@@ -1,5 +1,8 @@
 package br.uece.ps;
 
+import java.util.Date;
+
+import br.uece.ps.abstractfactory.Pizzaria;
 import br.uece.ps.bridge.Alfabeto;
 import br.uece.ps.bridge.Enumerado;
 import br.uece.ps.bridge.ListaAbstracao;
@@ -38,7 +41,7 @@ public class Main {
 
 		alarme.detectaMovimento();
 		
-		//Questão 9 
+		//Questão 9 Composite
 		Congresso congresso = new Congresso();
 		congresso.inscrever(new Individuo());
 		congresso.inscrever(new Individuo());
@@ -47,7 +50,7 @@ public class Main {
 		
 		congresso.imprimirParticipantes();
 		
-		//Questão 10
+		//Questão 10 Bridge
 		ListaAbstracao li = new NaoOrdenada(new Marcador());
 		li.adicionar("teste");
 		li.adicionar("teste2");
@@ -65,5 +68,8 @@ public class Main {
 		liAfa.adicionar("teste2");
 		liAfa.adicionar("teste3");
 		liAfa.imprimir();
+		
+		//11 - Abstract Factory
+		new Pizzaria().fabricarPizza(new Date());
 	}
 }
