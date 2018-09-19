@@ -20,10 +20,11 @@ import br.uece.ps.template.StringDuplicada;
 import br.uece.ps.template.StringInvertida;
 import br.uece.ps.template.StringMaiuscula;
 import br.uece.ps.template.StringMinuscula;
+import br.uece.ps.template.adapter.*;
 
 public class Main {
 	public static void main(String[] args) {
-		//Quest„o 1 - Singleton
+		//Quest√£o 1 - Singleton
 		Logger logger = Logger.getInstance();
 		logger.setAtivo(true);
 		logger.log("Log");
@@ -34,14 +35,14 @@ public class Main {
 		System.out.println(new StringMinuscula().transforma("Teste"));
 		System.out.println(new StringMaiuscula().transforma("Teste"));
 
-		//Quest„o 7 - Observer
+		//Quest√£o 7 - Observer
 		Alarme alarme = new Alarme();
 		CiaSeguros ciaSeguros = new CiaSeguros(alarme);
 		Delegacia delegacia = new Delegacia(alarme);
 
 		alarme.detectaMovimento();
 		
-		//Quest„o 9 Composite
+		//Quest√£o 9 Composite
 		Congresso congresso = new Congresso();
 		congresso.inscrever(new Individuo());
 		congresso.inscrever(new Individuo());
@@ -50,7 +51,7 @@ public class Main {
 		
 		congresso.imprimirParticipantes();
 		
-		//Quest„o 10 Bridge
+		//Quest√£o 10 Bridge
 		ListaAbstracao li = new NaoOrdenada(new Marcador());
 		li.adicionar("teste");
 		li.adicionar("teste2");
@@ -71,5 +72,9 @@ public class Main {
 		
 		//11 - Abstract Factory
 		new Pizzaria().fabricarPizza(new Date());
+		
+		//12 - Adapter
+	        int[] numeros = {1,2,3};
+	        System.out.println(new SomadorAdapter(new SomadorExistente()).somaLista(numeros));
 	}
 }
